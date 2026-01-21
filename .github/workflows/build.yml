@@ -34,7 +34,7 @@ jobs:
         env:
           GOOS: ${{ matrix.goos }}
           GOARCH: ${{ matrix.goarch }}
-        run: go build -o duplicacy_${{ matrix.goos }}_${{ matrix.goarch }} ./duplicacy
+        run: go build -ldflags="-s -w" -o duplicacy_${{ matrix.goos }}_${{ matrix.goarch }} ./duplicacy
       
       - uses: actions/upload-artifact@v6
         with:
