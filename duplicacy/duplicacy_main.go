@@ -24,7 +24,7 @@ import (
 
 	"io/ioutil"
 
-	"github.com/eccgecko/duplicacy/src"
+	"github.com/gilbertchen/duplicacy/src"
 )
 
 const (
