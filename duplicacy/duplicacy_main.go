@@ -24,7 +24,7 @@ import (
 
 	"io/ioutil"
 
-	"github.com/gilbertchen/duplicacy/src"
+	"github.com/eccgecko/duplicacy/src"
 )
 
 const (
@@ -2263,7 +2263,7 @@ func main() {
 	app.Name = "duplicacy"
 	app.HelpName = "duplicacy"
 	app.Usage = "A new generation cloud backup tool based on lock-free deduplication"
-	app.Version = "3.2.5" + " (" + GitCommit + ")"
+	app.Version = "3.2.6" + " (" + GitCommit + ")"
 
 	// Exit with code 2 if an invalid command is provided
 	app.CommandNotFound = func(context *cli.Context, command string) {
