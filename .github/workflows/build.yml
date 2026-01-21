@@ -39,4 +39,4 @@ jobs:
       - uses: actions/upload-artifact@v6
         with:
           name: duplicacy-${{ matrix.goos }}-${{ matrix.goarch }}
-          path: binaries/duplicacy_${{ matrix.goos }}_${{ matrix.goarch }}
+          path: duplicacy_${{ matrix.goos }}_${{ matrix.goarch }}
