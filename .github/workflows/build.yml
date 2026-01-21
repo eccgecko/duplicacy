@@ -9,6 +9,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - goos: linux
+            goarch: amd64
+          - goos: linux
+            goarch: arm64
+          - goos: darwin
+            goarch: amd64
+          - goos: darwin
+            goarch: arm64
+          - goos: windows
+            goarch: amd64
+    
     steps:
       - uses: actions/checkout@v6
       
@@ -16,4 +30,13 @@ jobs:
         with:
           go-version: '1.24.0'
       
-      - run: go build ./...
+      - name: Build
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: go build -o duplicacy_${{ matrix.goos }}_${{ matrix.goarch }} ./duplicacy
+      
+      - uses: actions/upload-artifact@v6
+        with:
+          name: duplicacy-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: binaries/duplicacy_${{ matrix.goos }}_${{ matrix.goarch }}
