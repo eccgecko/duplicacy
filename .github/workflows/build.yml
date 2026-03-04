@@ -39,7 +39,7 @@ jobs:
           GOARCH: ${{ matrix.goarch }}
         run: go build -ldflags="-s -w" -o duplicacy_${{ matrix.goos }}_${{ matrix.goarch }} ./duplicacy
       
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: duplicacy-${{ matrix.goos }}-${{ matrix.goarch }}
           path: duplicacy_${{ matrix.goos }}_${{ matrix.goarch }}
